@@ -3,6 +3,7 @@ import cors from 'cors';
 import conn from './db/conn.js';
 import routes from './routes/router.js';
 
+
 const app = express();
 
 app.use(cors());
@@ -12,11 +13,11 @@ app.use(express.json());
 //DB Connection
 conn();
 
+app.use('/', routes);
 
-
-app.get('/', (req, res) => {
-    res.json({msg: 'Oi, eu estou funcionando'});
-});
+// app.get('/', (req, res) => {
+//     res.json({msg: 'Oi, eu estou funcionando'});
+// });
 
 
 app.listen(3000, () => {
